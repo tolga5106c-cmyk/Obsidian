@@ -177,8 +177,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "19db5f216c08b1fc",
+  "active": "f5aa1fcc0fd09165",
   "lastOpenFiles": [
+    "Welcome.md",
     "Templates/Toplantı Notu.md",
     "Templates/Günlük Not.md",
     "Templates/Fikir Notu.md",
@@ -211,7 +212,6 @@
     "Obsidian Power User Skill/references",
     "Obsidian Power User Skill/INSTALL.md",
     "Obsidian Power User Skill/assets",
-    "Obsidian Power User Skill",
-    "Welcome.md"
+    "Obsidian Power User Skill"
   ]
 }
