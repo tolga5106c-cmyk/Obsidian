@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"g-ideas","type":"group","x":-40,"y":-40,"width":440,"height":760,"label":"1. Ideas","color":"3"},
+		{"id":"g-drafting","type":"group","x":460,"y":-40,"width":440,"height":760,"label":"2. Drafting","color":"2"},
+		{"id":"g-review","type":"group","x":960,"y":-40,"width":440,"height":760,"label":"3. Review","color":"5"},
+		{"id":"g-scheduled","type":"group","x":1460,"y":-40,"width":440,"height":760,"label":"4. Scheduled","color":"4"},
+		{"id":"g-published","type":"group","x":1960,"y":-40,"width":440,"height":760,"label":"5. Published","color":"6"},
+		{"id":"n-idea-1","type":"text","x":0,"y":20,"width":360,"height":160,"color":"3","text":"## The cost of distraction\n\nAngle: how meetings fragment deep work. Cite Newport."},
+		{"id":"n-idea-2","type":"text","x":0,"y":220,"width":360,"height":160,"color":"3","text":"## How I run weekly reviews\n\nWalkthrough of the actual ritual. Screenshot the template."},
+		{"id":"n-idea-3","type":"text","x":0,"y":420,"width":360,"height":160,"color":"3","text":"## Why I left Notion for Obsidian\n\nPersonal POV. Risky — fact-check before publishing."},
+		{"id":"n-idea-4","type":"text","x":0,"y":620,"width":360,"height":100,"color":"3","text":"## A taxonomy of meeting types\n\nHot take essay."},
+		{"id":"n-draft-1","type":"file","x":500,"y":20,"width":360,"height":240,"file":"2 Drafts/The cost of distraction.md"},
+		{"id":"n-draft-2","type":"file","x":500,"y":290,"width":360,"height":240,"file":"2 Drafts/How I run weekly reviews.md"},
+		{"id":"n-draft-3","type":"text","x":500,"y":560,"width":360,"height":160,"color":"2","text":"## Outline only\n\n_(promote to file when there's a real draft)_"},
+		{"id":"n-review-1","type":"text","x":1000,"y":20,"width":360,"height":200,"color":"5","text":"> [!QUESTION] Does the opening hook work?\n\nFlag for editor."},
+		{"id":"n-review-2","type":"text","x":1000,"y":240,"width":360,"height":160,"color":"5","text":"## Editor pass\n\n- [ ] Fact-check Newport citation\n- [ ] Cut intro by 30%"},
+		{"id":"n-sched-1","type":"file","x":1500,"y":20,"width":360,"height":240,"file":"3 Ready/The cost of distraction.md"},
+		{"id":"n-sched-2","type":"text","x":1500,"y":290,"width":360,"height":160,"color":"4","text":"## Newsletter — Friday\n\nSchedule for 2026-05-22, 9am."},
+		{"id":"n-pub-1","type":"link","x":2000,"y":20,"width":360,"height":240,"url":"https://example.com/posts/cost-of-distraction"},
+		{"id":"n-pub-2","type":"text","x":2000,"y":290,"width":360,"height":160,"color":"6","text":"## Cross-post checklist\n\n- [ ] LinkedIn\n- [ ] Mastodon\n- [ ] Hacker News (Saturday)"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"n-idea-1","toNode":"n-draft-1","fromSide":"right","toSide":"left","label":"promote","color":"4"},
+		{"id":"e2","fromNode":"n-idea-2","toNode":"n-draft-2","fromSide":"right","toSide":"left","label":"promote","color":"4"},
+		{"id":"e3","fromNode":"n-draft-1","toNode":"n-review-1","fromSide":"right","toSide":"left","label":"ready for edit"},
+		{"id":"e4","fromNode":"n-review-1","toNode":"n-sched-1","fromSide":"right","toSide":"left","label":"approved","color":"4"},
+		{"id":"e5","fromNode":"n-sched-1","toNode":"n-pub-1","fromSide":"right","toSide":"left","label":"shipped","color":"6"},
+		{"id":"e6","fromNode":"n-review-2","toNode":"n-draft-1","fromSide":"left","toSide":"right","label":"needs work","color":"1"}
+	]
+}
