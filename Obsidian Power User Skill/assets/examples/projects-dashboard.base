@@ -1,0 +1,86 @@
+filters:
+  and:
+    - file.inFolder("1 Projects")
+    - file.hasTag("project")
+
+formulas:
+  days_until_due: 'daysBetween(today(), due)'
+  age_days: '(now() - file.ctime) / (1000 * 60 * 60 * 24)'
+  is_overdue: 'due < today() && status != "done"'
+  health: 'if(status == "done", "✅ done", if(formula.is_overdue, "🔴 overdue", if(formula.days_until_due <= 7, "🟡 soon", "🟢 ok")))'
+
+properties:
+  file.name:
+    displayName: "Project"
+  status:
+    displayName: "Status"
+  priority:
+    displayName: "P"
+  owner:
+    displayName: "Owner"
+  due:
+    displayName: "Due"
+  formula.days_until_due:
+    displayName: "Days left"
+  formula.health:
+    displayName: "Health"
+  formula.age_days:
+    displayName: "Age"
+
+views:
+  - type: table
+    name: All Active
+    filters:
+      and:
+        - 'status != "done"'
+        - 'status != "archived"'
+    columns:
+      - file.name
+      - formula.health
+      - status
+      - priority
+      - owner
+      - due
+      - formula.days_until_due
+    order:
+      - priority
+      - due
+
+  - type: cards
+    name: Board
+    groupBy: status
+    coverProperty: cover
+    columns:
+      - file.name
+      - priority
+      - due
+      - owner
+    order:
+      - -priority
+      - due
+
+  - type: table
+    name: Overdue
+    filters:
+      and:
+        - 'formula.is_overdue'
+    columns:
+      - file.name
+      - owner
+      - due
+      - formula.days_until_due
+    order:
+      - due
+
+  - type: table
+    name: Shipped this quarter
+    filters:
+      and:
+        - 'status == "done"'
+        - 'file.mtime > date("2026-04-01")'
+    columns:
+      - file.name
+      - owner
+      - file.mtime
+    order:
+      - -file.mtime
